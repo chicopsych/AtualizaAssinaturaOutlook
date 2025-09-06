@@ -1,0 +1,138 @@
+# =========================
+# .gitignore para projeto .NET / C#
+# Foco: evitar publicação de artefatos de build e arquivos com dados sensíveis.
+# Revise antes de commitar qualquer arquivo de configuração contendo segredos.
+# =========================
+
+###############
+## Build / IDE
+###############
+/bin/
+/obj/
+/[Pp]ublish/
+/[Rr]elease/
+/[Dd]ebug/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+*.vcxproj.user
+*.pidb
+*.svclog
+*.vsp
+*.vspx
+*.psess
+*.psess.run.xml
+
+# Visual Studio e cache
+.vs/
+*.VC.db
+*.VC.VC.opendb
+
+# JetBrains Rider / ReSharper
+.idea/
+*.sln.iml
+_ReSharper*/
+*.DotSettings.user
+
+# Testes / Cobertura
+[Tt]est[Rr]esult*/
+*.coverage
+*.coveragexml
+*.trx
+
+# Pacotes / NuGet
+*.nupkg
+# Se usar pasta packages local descomente:
+# /packages/
+.nuget/packages/
+
+# Logs / Temporários
+*.log
+logs/
+*.tmp
+*.temp
+*.cache
+~$*
+
+# Arquivos do SO
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Arquivos de backup / merge
+*.orig
+*.rej
+*.bak
+*.swp
+*.swo
+
+########################
+## Segurança / Segredos
+########################
+# Certificados / chaves
+*.pfx
+*.p12
+*.snk
+*.key
+*.cer
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# User secrets (caso exporte)
+secrets.json
+
+####################################
+## Configurações da aplicação (.NET)
+####################################
+# Ignorar todos os appsettings para evitar vazamento acidental
+# Crie um arquivo modelo "appsettings.example.json" SEM segredos para compartilhar.
+appsettings*.json
+!appsettings.example.json
+
+# Se quiser versionar o appsettings.json (sem segredos) remova a linha acima ou substitua por:
+# appsettings.Development.json
+# appsettings.Local.json
+# (e mantenha appsettings.json sem credenciais)
+
+#############################
+## Ferramentas / Analisadores
+#############################
+.stylecop/*
+*.ruleset
+
+# Cobertura (ferramentas variadas)
+coverage/
+.coverage/
+nyc-output/
+
+#############################
+## Artefatos diversos opcionais
+#############################
+# Arquivos de publicação dotnet
+*.pubxml
+*.pubxml.user
+
+# Perf / trace
+*.etl
+*.diagsession
+
+# Backup de pacotes lock (caso existam)
+project.lock.json
+
+################################
+## Diretorios ignorados gerais
+################################
+# Caso use contêineres/docker locais
+.docker/
+
+# Cache de ferramentas diversas
+.tools-cache/
+
+# Se usar Sonar / análise
+.sonar/
+
+# Se usar cobertura com ReportGenerator
+Report/
