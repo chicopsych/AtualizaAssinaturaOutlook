@@ -227,7 +227,3 @@ Este projeto modifica arquivos de assinatura do usuário. Recomenda-se testar em
 ## 📬 Contato
 
 Abra uma issue com dúvidas ou ideias.
-
----
-
-Se desejar, posso gerar também uma versão em inglês ou adicionar badges de CI. Basta pedir.
