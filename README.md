@@ -34,8 +34,8 @@ Fluxo simplificado:
 
 ```text
 [Registry] -> Nome da assinatura -> [%AppData%/Microsoft/Signatures]
-	|--> Atualiza assinatura.htm (img src)
-	|--> Atualiza *_arquivos/filelist.xml (HRef)
+ |--> Atualiza assinatura.htm (img src)
+ |--> Atualiza *_arquivos/filelist.xml (HRef)
 ```
 
 ---
@@ -57,9 +57,9 @@ Arquivo `appsettings.json` padrão:
 
 ```json
 {
-	"SignatureSettings": {
-		"NewImagePath": "//127.0.0.1/outlook_files/novo_ass_email.jpg"
-	}
+ "SignatureSettings": {
+  "NewImagePath": "//127.0.0.1/outlook_files/novo_ass_email.jpg"
+ }
 }
 ```
 
@@ -89,6 +89,7 @@ Publicar (para distribuir um executável self-contained — opcional):
 ```pwsh
 dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true --self-contained true
 ```
+
 O executável ficará em: `bin/Release/net9.0/win-x64/publish/`.
 
 ---
