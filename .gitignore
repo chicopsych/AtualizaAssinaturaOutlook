@@ -24,6 +24,12 @@
 *.psess
 *.psess.run.xml
 
+###############
+## Preferencias do Editor de Texto
+###############
+.editorconfig
+
+
 # Visual Studio e cache
 .vs/
 *.VC.db
