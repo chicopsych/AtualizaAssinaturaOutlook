@@ -5,6 +5,7 @@ Mantém a imagem (logo / banner) da assinatura de e‑mail do Outlook de todos o
 ---
 
 ## ✨ Visão Geral
+
 Este utilitário em .NET automatiza a atualização da imagem usada na assinatura padrão do Outlook (cliente desktop). Ele:
 
 1. Detecta a assinatura padrão registrada no Windows (varre múltiplas versões do Office).  
@@ -92,6 +93,18 @@ O executável ficará em: `bin/Release/net9.0/win-x64/publish/`.
 
 ---
 
+## 🧪 Compatibilidade
+
+| Componente | Suporte | Observação |
+|------------|---------|------------|
+| Outlook 2016/365 (16.0) | ✅ | Alvo principal/testado |
+| Outlook 2013 (15.0) | ⚠️ | Pode funcionar; não testado recentemente |
+| Outlook 2010 ou anterior | ❌ | Fora de escopo |
+| Windows (x64) | ✅ | Requer acesso ao Registro HKCU |
+| Linux / macOS | ❌ | Depende de Outlook Windows e Registro |
+
+---
+
 ## 🔍 Detalhes do Processo
 
 1. Varredura de versões do Office: `16.0`, `15.0`, `14.0`, `13.0`, `12.0`.  
@@ -104,7 +117,25 @@ O executável ficará em: `bin/Release/net9.0/win-x64/publish/`.
 
 ---
 
-## 🛡️ Tratamento de Erros (Exemplos)
+## ⚠️ Limitações Conhecidas
+
+- Necessita que uma assinatura já exista (não cria estrutura do zero).  
+- Só altera o primeiro elemento `<img>` encontrado (simplificação deliberada).  
+- Não replica a imagem localmente; depende do caminho UNC estar acessível quando o Outlook renderiza.  
+- Não personaliza dados dinâmicos (nome/cargo) – foco apenas na imagem/bandeira.  
+- `filelist.xml` fora do padrão (namespaces diferentes) pode exigir ajustes futuros.  
+
+---
+
+## � Considerações de Rede / Acesso
+
+- Garanta que o caminho UNC use permissões somente leitura para usuários finais.  
+- Se houver autenticação por credenciais, monte previamente a sessão (script de logon).  
+- Para resiliência, pode-se futuramente copiar a imagem para `%AppData%` e referenciar localmente (não implementado).  
+
+---
+
+## �🛡️ Tratamento de Erros (Exemplos)
 
 | Situação | Ação |
 |----------|------|
@@ -136,6 +167,12 @@ Exemplo de tarefa agendada (PowerShell linha de comando simplificada):
 ```pwsh
 Start-Process "C:\CorpTools\AtualizaAssinaturaOutlook.exe" --SignatureSettings:NewImagePath=//intranet/branding/banner_atual.jpg -WindowStyle Hidden
 ```
+
+---
+
+## ❓ Por que não um Add-in do Outlook?
+
+Uma abordagem via add-in (VSTO ou Web Add-in) adicionaria complexidade de deployment, atualização e possíveis prompts de segurança. Este utilitário atua só no sistema de arquivos e Registro de usuário, reduzindo atrito operacional e evitando dependência da API de composição do Outlook.
 
 ---
 
@@ -176,7 +213,7 @@ Sugestões de melhorias são bem-vindas.
 
 ## 📄 Licença
 
-Sugestão: MIT. (Adicionar arquivo `LICENSE` se/quando decidido.)
+Licenciado sob a [MIT License](./LICENSE.md).
 
 ---
 
