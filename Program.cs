@@ -2,7 +2,6 @@
 
 using AtualizaAssinaturaOutlook.Modules;
 using AtualizaAssinaturaOutlook.Modules.Core;
-//using AtualizaAssinaturaOutlook.Modules.Services;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.CommandLine;

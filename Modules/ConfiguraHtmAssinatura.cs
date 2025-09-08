@@ -2,8 +2,6 @@
 using System.IO;
 using System.Xml;
 
-//using AtualizaAssinaturaOutlook.Modules.Services;
-
 using HtmlAgilityPack;
 
 
