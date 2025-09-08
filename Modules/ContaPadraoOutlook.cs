@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Versioning; // Adicione este using
+using System.Runtime.Versioning;
 
 using Microsoft.Win32;
 using System.IO;
